@@ -54,14 +54,16 @@ angular.module('ng-fileDialog', []).factory('FileDialog', function() {
 
         dialog.addEventListener('change', function() {
             // string join with ';'
-            //callback(dialog.value);
+            // callback && callback(dialog.value);
+
             // files array
             if (options.multiple) {
-                callback(dialog.files);
+                callback && callback(dialog.files);
             } else {
-                callback(dialog.files[0]);
+                callback && callback(dialog.files[0]);
             }
         }, false);
+
         dialog.click();
     }
 
