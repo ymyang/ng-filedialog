@@ -25,6 +25,8 @@ angular.module('ng-fileDialog', []).factory('FileDialog', function() {
         }, callback);
     };
 
+    dialogs.open = _open;
+
     function _open(options, callback) {
         var dialog = document.createElement('input');
         dialog.type = 'file';
@@ -53,14 +55,20 @@ angular.module('ng-fileDialog', []).factory('FileDialog', function() {
         }
 
         dialog.addEventListener('change', function() {
+            if (!callback) {
+                return;
+            }
             // string join with ';'
-            // callback && callback(dialog.value);
-
+            // callback(dialog.value);
             // files array
             if (options.multiple) {
-                callback && callback(dialog.files);
+                var files = [];
+                for (var i = 0; i < dialog.files.length; i++) {
+                    files.push(dialog.files[i]);
+                }
+                callback(files);
             } else {
-                callback && callback(dialog.files[0]);
+                callback(dialog.files[0]);
             }
         }, false);
 
