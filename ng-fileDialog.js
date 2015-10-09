@@ -5,14 +5,20 @@ angular.module('ng-fileDialog', []).factory('FileDialog', function() {
 
     var dialogs = {};
 
-    dialogs.openFile = function(callback, multiple, acceptTypes) {
+    dialogs.selectFile = function(callback, acceptTypes) {
+        _open({
+            accept: acceptTypes
+        }, callback);
+    };
+
+    dialogs.selectFiles = function(callback, acceptTypes) {
         _open({
             multiple: true,
             accept: acceptTypes
         }, callback);
     };
 
-    dialogs.openDir = function(callback) {
+    dialogs.selectDir = function(callback) {
         _open({
             nwdirectory: true
         }, callback);
