@@ -51,13 +51,13 @@ angular.module('ng-fileDialog', []).factory('FileDialog', function() {
             dialog.webkitdirectory = true;
         }
         if (options.nwdirectory) {
-            dialog.nwdirectory  = true;
+            dialog.nwdirectory = true;
         }
         if (options.nwworkingdir) {
-            dialog.nwworkingdir  = options.nwworkingdir;
+            dialog.nwworkingdir = options.nwworkingdir;
         }
         if (options.nwsaveas) {
-            dialog.nwsaveas  = options.nwsaveas;
+            dialog.nwsaveas = options.nwsaveas;
         }
 
         dialog.addEventListener('change', function() {
