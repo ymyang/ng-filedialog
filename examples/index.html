@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+</head>
+<body ng-app="app">
+<div ng-controller="AppCtrl">
+  <button ng-click="selectFile()">选择文件</button>
+  <button ng-click="selectFiles()">选择图片</button>
+  <button ng-click="selectDir()">选择文件夹</button>
+  <button ng-click="saveAs()">另存，仅nwjs可用</button>
+  <a ng-file-dialog select="onSelect(file)" options="options">选择图片</a>
+</div>
+
+<script src="./angular.min.js"></script>
+<script src="../ng-fileDialog.js"></script>
+
+<script>
+  angular.module('app', ['ng-fileDialog']).controller('AppCtrl', function($scope, $log, FileDialog) {
+
+    $scope.selectFile = function() {
+      FileDialog.selectFile(function(file) {
+        $log.debug('selectFile:', file);
+      });
+    };
+
+    $scope.selectFiles = function() {
+      FileDialog.selectFiles(function(files) {
+        $log.debug('selectFiles:', files);
+      }, '.jpg,.jpeg,.png');
+    };
+
+    $scope.selectDir = function() {
+      FileDialog.selectDir(function(file) {
+        $log.debug('selectDir:', file);
+      });
+    };
+
+    $scope.saveAs = function() {
+      FileDialog.saveAs(function(file) {
+        $log.debug('saveAs:', file);
+      }, 'test.docx', '.docx');
+    };
+
+    $scope.onSelect = function(file) {
+      $log.debug('onSelect:', file);
+    };
+
+    $scope.options = {
+      multiple: true,
+      accept: ['.jpeg', '.jpg', '.png']
+    };
+
+  });
+</script>
+</body>
+</html>

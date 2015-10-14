@@ -1,0 +1,25 @@
+{
+  "name": "filedialog",
+  "version": "1.0.0",
+  "description": "angular file dialog for nwjs",
+  "main": "ng-fileDialog.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ymyang/ng-fileDialog.git"
+  },
+  "keywords": [
+    "file",
+    "dialog",
+    "nwjs",
+    "angular"
+  ],
+  "author": "ymyang",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ymyang/ng-fileDialog/issues"
+  },
+  "homepage": "https://github.com/ymyang/ng-fileDialog#readme"
+}

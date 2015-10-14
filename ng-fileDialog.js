@@ -20,7 +20,7 @@ angular.module('ng-fileDialog', []).factory('FileDialog', function() {
 
     dialogs.selectDir = function(callback) {
         _open({
-            nwdirectory: true
+            webkitdirectory: true
         }, callback);
     };
 
@@ -36,6 +36,8 @@ angular.module('ng-fileDialog', []).factory('FileDialog', function() {
     function _open(options, callback) {
         var dialog = document.createElement('input');
         dialog.type = 'file';
+
+        options = options || {};
 
         if (options.multiple) {
             dialog.multiple = true
@@ -83,4 +85,31 @@ angular.module('ng-fileDialog', []).factory('FileDialog', function() {
 
     return dialogs;
 
+}).directive('ngFileDialog', function(FileDialog) {
+
+    return {
+        restrict: 'EA',
+        replace: false,
+        transclude: false,
+        require: ['?options'],
+        scope: {
+            select: '&',
+            options: '='
+        },
+        link: function ($scope, $element, attrs) {
+
+            $element.on('click', function(event) {
+                event.preventDefault();
+
+                FileDialog.open($scope.options, function(file) {
+                    if ($scope.select) {
+                        $scope.select({
+                            file: file
+                        });
+                    }
+                });
+            });
+
+        }
+    };
 });
