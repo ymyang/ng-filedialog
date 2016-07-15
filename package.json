@@ -1,5 +1,5 @@
 {
-  "name": "filedialog",
+  "name": "ng-filedialog",
   "version": "1.0.0",
   "description": "angular file dialog for nwjs",
   "main": "ng-fileDialog.js",
@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ymyang/ng-fileDialog.git"
+    "url": "git+https://github.com/ymyang/ng-filedialog.git"
   },
   "keywords": [
     "file",
@@ -19,9 +19,9 @@
   "author": "ymyang",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/ymyang/ng-fileDialog/issues"
+    "url": "https://github.com/ymyang/ng-filedialog/issues"
   },
-  "homepage": "https://github.com/ymyang/ng-fileDialog#readme",
+  "homepage": "https://github.com/ymyang/ng-filedialog#readme",
   "devDependencies": {
     "gulp": "^3.9.0",
     "gulp-ext-replace": "^0.2.0",
