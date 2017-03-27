@@ -40,9 +40,9 @@ var app = angular.module('app', ['ng-fileDialog']);
 
 3. Use the provided `fileDialog` service
 ```js
-app.controller('SomeCtrl', function($scope, fileDialog) {
+app.controller('SomeCtrl', function($scope, FileDialog) {
     $scope.saveFile = function() {
-      fileDialog.saveAs(function(filename) {
+      FileDialog.saveAs(function(filename) {
         // your code
       });
     };
